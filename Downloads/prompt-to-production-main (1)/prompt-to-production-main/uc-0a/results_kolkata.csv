@@ -1,0 +1,16 @@
+complaint_id,category,priority,reason,flag
+KM-202401,Streetlight,Standard,Categorized as streetlight because of 'lamp post'.,
+KM-202402,Heritage Damage,Standard,Categorized as heritage damage because of 'historic'.,
+KM-202405,Other,Standard,No specific category keywords found.,NEEDS_REVIEW
+KM-202409,Pothole,Standard,Categorized as pothole because of 'pothole'.,
+KM-202410,Pothole,Standard,Categorized as pothole because of 'pothole'.,
+KM-202411,Pothole,Standard,Categorized as pothole because of 'pothole'.,
+KM-202415,Drain Blockage,Standard,Categorized as drain blockage because of 'drain'.,
+KM-202418,Waste,Standard,Categorized as waste because of 'waste'.,
+KM-202421,Road Damage,Urgent,"Categorized as road damage because of 'footpath' urgent priority due to keywords: hospital, fell.",
+KM-202422,Road Damage,Standard,Categorized as road damage because of 'road'.,
+KM-202426,Heritage Damage,Standard,Categorized as heritage damage because of 'heritage'.,
+KM-202430,Road Damage,Standard,Categorized as road damage because of 'road'.,
+KM-202434,Heritage Damage,Standard,Categorized as heritage damage because of 'heritage'.,
+KM-202436,Other,Standard,No specific category keywords found.,NEEDS_REVIEW
+KM-202438,Heritage Damage,Standard,Categorized as heritage damage because of 'heritage'.,
