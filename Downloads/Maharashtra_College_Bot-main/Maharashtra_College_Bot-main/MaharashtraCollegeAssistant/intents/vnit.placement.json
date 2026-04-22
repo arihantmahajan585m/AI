@@ -1,0 +1,31 @@
+{
+  "name": "vnit.placement",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": "🏫 VNIT Nagpur\n\n💼 Highest Package: ₹30–40 LPA\n📊 Average Package: ₹9–11 LPA\n📈 Placement: 80–90%\n\n💰 Fees:\nPer Year: ₹1,40,000\nTotal: ₹5.6 Lakhs\n\n📉 Cutoff (CSE): 98+ (JEE Main/MHT-CET)"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

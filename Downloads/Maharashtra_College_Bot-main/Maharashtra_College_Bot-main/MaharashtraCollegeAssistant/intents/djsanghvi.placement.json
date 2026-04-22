@@ -1,0 +1,31 @@
+{
+  "name": "djsanghvi.placement",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": "🏫 DJ Sanghvi Mumbai\n\n💼 Highest Package: ₹20–30 LPA\n📊 Average Package: ₹6–8 LPA\n📈 Placement: 80–85%\n\n💰 Fees:\nPer Year: ₹1,95,000\nTotal: ₹7.8 Lakhs\n\n📉 Cutoff (CSE): 97.5+ percentile"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

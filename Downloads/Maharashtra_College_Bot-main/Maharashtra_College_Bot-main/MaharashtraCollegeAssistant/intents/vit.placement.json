@@ -1,0 +1,31 @@
+{
+  "name": "vit.placement",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": "🏫 VIT Pune\n\n💼 Highest Package: ₹15–25 LPA\n📊 Average Package: ₹6–7 LPA\n📈 Placement: 80–85%\n\n💰 Fees:\nPer Year: ₹1,75,000\nTotal: ₹7 Lakhs\n\n📉 Cutoff (CSE): 96.5+ percentile"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,31 @@
+{
+  "name": "coep.placement",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": "🏫 COEP Pune\n\n💼 Highest Package: ₹50–80 LPA\n📊 Average Package: ₹10–12 LPA\n📈 Placement: 85–95%\n\n💰 Fees:\nPer Year: ₹90,000\nTotal: ₹3.6–4 Lakhs\n\n📉 Cutoff (CSE): 99+ percentile"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

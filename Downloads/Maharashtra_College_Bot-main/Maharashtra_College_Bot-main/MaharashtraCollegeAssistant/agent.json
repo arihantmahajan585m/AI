@@ -1,0 +1,29 @@
+{
+  "description": "Fixed Maharashtra Engineering College Assistant",
+  "language": "en",
+  "displayName": "MaharashtraCollegeAssistant",
+  "disableInteractionLogs": false,
+  "disableStackdriverLogs": true,
+  "googleAssistant": {
+    "googleAssistantCompatible": true,
+    "welcomeIntentSignInRequired": false,
+    "startIntents": [],
+    "systemIntents": [],
+    "endIntentIds": [],
+    "oAuthTokenEndpoint": "",
+    "clientId": "",
+    "clientSecret": "",
+    "accessTokenEndpoint": "",
+    "scopes": "",
+    "privacyPolicyUrl": ""
+  },
+  "defaultTimezone": "Asia/Kolkata",
+  "mlSettings": {
+    "enabled": true,
+    "mlMinConfidence": 0.3,
+    "agentTrainMode": "TRAIN_ON_IMPORT"
+  },
+  "onePlatformApiVersion": "v2",
+  "supportedLanguages": [],
+  "enableOnePlatformApi": true
+}

@@ -1,0 +1,31 @@
+{
+  "name": "vjti.placement",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": "🏫 VJTI Mumbai\n\n💼 Highest Package: ₹50–70 LPA\n📊 Average Package: ₹10–15 LPA\n📈 Placement: 90–95%\n\n💰 Fees:\nPer Year: ₹85,000\nTotal: ₹3.4 Lakhs\n\n📉 Cutoff (CSE): 99.5+ percentile"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,31 @@
+{
+  "name": "pict.placement",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": "🏫 PICT Pune\n\n💼 Highest Package: ₹30–45 LPA\n📊 Average Package: ₹7–10 LPA\n📈 Placement: 85–90%\n\n💰 Fees:\nPer Year: ₹95,000\nTotal: ₹3.8–4 Lakhs\n\n📉 Cutoff (CSE): 98.5+ percentile"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

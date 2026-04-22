@@ -1,0 +1,2601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Find your perfect engineering college in Maharashtra. Compare fees, placements, cutoffs & rankings for top colleges like COEP, VJTI, PICT, VNIT and more.">
+  <meta name="keywords"
+    content="Maharashtra engineering colleges, COEP, VJTI, PICT, VNIT, MHT-CET, engineering admissions, placement statistics, college comparison">
+  <meta name="author" content="CollegeBot Maharashtra">
+  <title>CollegeBot Maharashtra — Find Your Perfect Engineering College</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+  <df-messenger chat-title="MahaCollegeBOT" agent-id="353f3329-973a-4484-a8f7-d14041bade12"
+    language-code="en"></df-messenger>
+  <style>
+    /* ============================================
+       CSS RESET & VARIABLES
+    ============================================ */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #1a237e;
+      --primary-light: #283593;
+      --primary-dark: #0d1452;
+      --accent: #ff6f00;
+      --accent-light: #ff8f00;
+      --accent-dark: #e65100;
+      --bg: #f0f4ff;
+      --bg-alt: #e8edf8;
+      --card-bg: #ffffff;
+      --text: #212121;
+      --text-light: #546e7a;
+      --text-muted: #78909c;
+      --success: #2e7d32;
+      --success-light: #e8f5e9;
+      --border: #e0e6f0;
+      --shadow-sm: 0 2px 8px rgba(26, 35, 126, 0.06);
+      --shadow-md: 0 4px 20px rgba(26, 35, 126, 0.08);
+      --shadow-lg: 0 8px 40px rgba(26, 35, 126, 0.12);
+      --shadow-xl: 0 16px 60px rgba(26, 35, 126, 0.16);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --radius-full: 9999px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --font-heading: 'Poppins', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: var(--font-heading);
+      line-height: 1.3;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      outline: none;
+      font-family: var(--font-body);
+    }
+
+    /* ============================================
+       NAVBAR
+    ============================================ */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(26, 35, 126, 0.08);
+      transition: var(--transition);
+    }
+
+    .navbar.scrolled {
+      box-shadow: var(--shadow-md);
+    }
+
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 clamp(1rem, 4vw, 2rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+      color: var(--primary);
+      user-select: none;
+    }
+
+    .nav-logo .logo-icon {
+      font-size: 1.8rem;
+      filter: drop-shadow(0 2px 4px rgba(26, 35, 126, 0.2));
+    }
+
+    .nav-logo .logo-accent {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      background: rgba(26, 35, 126, 0.06);
+      color: var(--primary);
+    }
+
+    .nav-links a.active {
+      background: rgba(26, 35, 126, 0.08);
+      color: var(--primary);
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--accent), var(--accent-light)) !important;
+      color: #fff !important;
+      font-weight: 600 !important;
+      padding: 10px 20px !important;
+      box-shadow: 0 4px 16px rgba(255, 111, 0, 0.35);
+      animation: glow-pulse 2s ease-in-out infinite;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(255, 111, 0, 0.45) !important;
+      background: linear-gradient(135deg, var(--accent-light), var(--accent)) !important;
+    }
+
+    @keyframes glow-pulse {
+
+      0%,
+      100% {
+        box-shadow: 0 4px 16px rgba(255, 111, 0, 0.35);
+      }
+
+      50% {
+        box-shadow: 0 4px 24px rgba(255, 111, 0, 0.55);
+      }
+    }
+
+    /* Hamburger Menu */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      padding: 8px;
+      z-index: 1001;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2.5px;
+      background: var(--primary);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    .nav-hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .nav-hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* ============================================
+       HERO SECTION
+    ============================================ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 120px clamp(1rem, 4vw, 2rem) 80px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0d1452 0%, #1a237e 30%, #283593 60%, #1565c0 100%);
+      z-index: 0;
+    }
+
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -30%;
+      width: 90%;
+      height: 150%;
+      background: radial-gradient(ellipse, rgba(255, 111, 0, 0.15) 0%, transparent 70%);
+      animation: hero-glow 8s ease-in-out infinite alternate;
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -20%;
+      width: 70%;
+      height: 120%;
+      background: radial-gradient(ellipse, rgba(21, 101, 192, 0.3) 0%, transparent 70%);
+      animation: hero-glow 10s ease-in-out infinite alternate-reverse;
+    }
+
+    @keyframes hero-glow {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      100% {
+        transform: translate(30px, -20px) scale(1.1);
+      }
+    }
+
+    /* Floating shapes */
+    .hero-shapes {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.08;
+      background: #fff;
+    }
+
+    .shape-1 {
+      width: 400px;
+      height: 400px;
+      top: 10%;
+      right: -5%;
+      animation: float-shape 15s ease-in-out infinite;
+    }
+
+    .shape-2 {
+      width: 250px;
+      height: 250px;
+      bottom: 15%;
+      left: 5%;
+      animation: float-shape 12s ease-in-out infinite reverse;
+    }
+
+    .shape-3 {
+      width: 150px;
+      height: 150px;
+      top: 40%;
+      left: 30%;
+      animation: float-shape 10s ease-in-out infinite;
+      animation-delay: -3s;
+    }
+
+    .shape-4 {
+      width: 80px;
+      height: 80px;
+      top: 20%;
+      left: 15%;
+      animation: float-shape 8s ease-in-out infinite reverse;
+      animation-delay: -5s;
+      opacity: 0.12;
+    }
+
+    .shape-5 {
+      width: 120px;
+      height: 120px;
+      bottom: 30%;
+      right: 20%;
+      animation: float-shape 14s ease-in-out infinite;
+      animation-delay: -2s;
+    }
+
+    @keyframes float-shape {
+
+      0%,
+      100% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+
+      25% {
+        transform: translate(20px, -30px) rotate(5deg);
+      }
+
+      50% {
+        transform: translate(-10px, 20px) rotate(-3deg);
+      }
+
+      75% {
+        transform: translate(15px, 10px) rotate(2deg);
+      }
+    }
+
+    /* Grid pattern overlay */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-full);
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 28px;
+      backdrop-filter: blur(10px);
+      animation: fadeInDown 0.8s ease-out;
+    }
+
+    .hero-badge .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: #4caf50;
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.5;
+        transform: scale(1.3);
+      }
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5.5vw, 3.5rem);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 20px;
+      line-height: 1.15;
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, var(--accent), #ffb74d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      color: rgba(255, 255, 255, 0.75);
+      margin-bottom: 40px;
+      font-weight: 400;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeInUp 0.8s ease-out 0.4s both;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease-out 0.6s both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: var(--radius-full);
+      font-size: 1rem;
+      font-weight: 600;
+      transition: var(--transition);
+      min-height: 48px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(255, 111, 0, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(255, 111, 0, 0.5);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+    }
+
+    .hero-scroll-indicator {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      animation: fadeInUp 0.8s ease-out 1s both;
+    }
+
+    .scroll-mouse {
+      width: 28px;
+      height: 44px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 14px;
+      display: flex;
+      justify-content: center;
+      padding-top: 8px;
+    }
+
+    .scroll-wheel {
+      width: 4px;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 2px;
+      animation: scroll-anim 2s ease-in-out infinite;
+    }
+
+    @keyframes scroll-anim {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(12px);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ============================================
+       QUICK STATS BAR
+    ============================================ */
+    .stats-section {
+      position: relative;
+      z-index: 10;
+      margin-top: -50px;
+      padding: 0 clamp(1rem, 4vw, 2rem);
+    }
+
+    .stats-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid rgba(26, 35, 126, 0.04);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .stat-card:hover::before {
+      opacity: 1;
+    }
+
+    .stat-icon {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .stat-number {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.1;
+    }
+
+    .stat-number .suffix {
+      font-size: 0.6em;
+      color: var(--accent);
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-top: 6px;
+      font-weight: 500;
+    }
+
+    /* ============================================
+       SECTION SHARED STYLES
+    ============================================ */
+    .section {
+      padding: clamp(60px, 10vw, 100px) clamp(1rem, 4vw, 2rem);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 50px;
+    }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      background: rgba(26, 35, 126, 0.06);
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      font-size: clamp(0.9rem, 2vw, 1.05rem);
+      color: var(--text-light);
+      font-weight: 400;
+    }
+
+    /* ============================================
+       COLLEGE CARDS GRID
+    ============================================ */
+    .colleges-grid {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .college-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .college-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .college-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+      border-color: rgba(26, 35, 126, 0.12);
+    }
+
+    .college-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .college-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .college-name {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.3;
+      flex: 1;
+    }
+
+    .city-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 12px;
+      background: rgba(26, 35, 126, 0.06);
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--primary-light);
+      white-space: nowrap;
+      margin-left: 12px;
+      flex-shrink: 0;
+    }
+
+    .college-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+
+    .college-stat {
+      padding: 12px;
+      background: var(--bg);
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+
+    .college-stat-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .college-stat-value {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .college-stat-value.highlight-value {
+      color: var(--success);
+    }
+
+    .college-type-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .type-govt {
+      background: var(--success-light);
+      color: var(--success);
+    }
+
+    .type-private {
+      background: #fff3e0;
+      color: #e65100;
+    }
+
+    .type-autonomous {
+      background: #e8eaf6;
+      color: #283593;
+    }
+
+    .college-card-footer {
+      display: flex;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .btn-ask-bot {
+      flex: 1;
+      padding: 10px 16px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
+      border-radius: var(--radius-md);
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+
+    .btn-ask-bot:hover {
+      background: linear-gradient(135deg, var(--primary-light), var(--primary));
+      box-shadow: 0 4px 16px rgba(26, 35, 126, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* ============================================
+       QUICK QUESTION CHIPS
+    ============================================ */
+    .chips-section {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, #1565c0 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .chips-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .chips-section .section-title {
+      color: #fff;
+    }
+
+    .chips-section .section-subtitle {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .chips-section .section-tag {
+      background: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .chips-container {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .chip {
+      padding: 12px 24px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius-full);
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      user-select: none;
+    }
+
+    .chip:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .chip:active {
+      transform: scale(0.97);
+    }
+
+    .chip .chip-icon {
+      font-size: 1.1rem;
+    }
+
+    /* ============================================
+       COMPARISON TABLE
+    ============================================ */
+    .compare-section {
+      background: var(--bg-alt);
+    }
+
+    .table-wrapper {
+      max-width: 1280px;
+      margin: 0 auto;
+      overflow-x: auto;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      background: var(--card-bg);
+      scrollbar-width: thin;
+      scrollbar-color: var(--primary) var(--bg);
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .table-wrapper::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .table-wrapper::-webkit-scrollbar-track {
+      background: var(--bg);
+      border-radius: 4px;
+    }
+
+    .table-wrapper::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 4px;
+    }
+
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 900px;
+    }
+
+    .compare-table thead {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .compare-table th {
+      padding: 16px 18px;
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-align: left;
+      white-space: nowrap;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s;
+      position: relative;
+    }
+
+    .compare-table th:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .compare-table th .sort-icon {
+      margin-left: 6px;
+      font-size: 0.7rem;
+      opacity: 0.6;
+    }
+
+    .compare-table th.sorted .sort-icon {
+      opacity: 1;
+    }
+
+    .compare-table tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: var(--transition);
+    }
+
+    .compare-table tbody tr:hover {
+      background: rgba(26, 35, 126, 0.03);
+    }
+
+    .compare-table tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    .compare-table td {
+      padding: 14px 18px;
+      font-size: 0.9rem;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .compare-table .college-name-cell {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .compare-table .best-value {
+      background: var(--success-light);
+    }
+
+    .compare-table .best-value td {
+      color: var(--success);
+      font-weight: 600;
+    }
+
+    .compare-table .best-value .college-name-cell {
+      color: var(--success);
+    }
+
+    .table-legend {
+      max-width: 1280px;
+      margin: 16px auto 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+
+    .legend-swatch {
+      width: 16px;
+      height: 16px;
+      background: var(--success-light);
+      border-radius: 4px;
+      border: 1px solid rgba(46, 125, 50, 0.2);
+    }
+
+    /* ============================================
+       CHATBOT WIDGET
+    ============================================ */
+    .chat-fab {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 9999;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      color: #fff;
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 28px rgba(255, 111, 0, 0.45);
+      transition: var(--transition);
+      animation: fab-pulse 3s ease-in-out infinite;
+    }
+
+    .chat-fab:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 36px rgba(255, 111, 0, 0.55);
+    }
+
+    .chat-fab.hidden {
+      transform: scale(0);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    @keyframes fab-pulse {
+
+      0%,
+      100% {
+        box-shadow: 0 6px 28px rgba(255, 111, 0, 0.45);
+      }
+
+      50% {
+        box-shadow: 0 6px 36px rgba(255, 111, 0, 0.65), 0 0 0 12px rgba(255, 111, 0, 0.08);
+      }
+    }
+
+    /* Chat notification badge */
+    .chat-fab .fab-badge {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      width: 22px;
+      height: 22px;
+      background: var(--success);
+      border-radius: 50%;
+      font-size: 0.7rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid var(--bg);
+      animation: badge-pop 0.3s ease-out;
+    }
+
+    @keyframes badge-pop {
+      from {
+        transform: scale(0);
+      }
+
+      to {
+        transform: scale(1);
+      }
+    }
+
+    /* Chat Panel */
+    .chat-panel {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 10000;
+      width: min(400px, calc(100vw - 32px));
+      height: min(560px, calc(100vh - 100px));
+      background: var(--card-bg);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-xl), 0 0 0 1px rgba(26, 35, 126, 0.08);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transform: scale(0.7) translateY(40px);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+        opacity 0.25s ease;
+      transform-origin: bottom right;
+    }
+
+    .chat-panel.open {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .chat-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .chat-header-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .chat-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
+
+    .chat-header-text h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .chat-header-text .chat-status {
+      font-size: 0.75rem;
+      opacity: 0.8;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .chat-status-dot {
+      width: 6px;
+      height: 6px;
+      background: #4caf50;
+      border-radius: 50%;
+    }
+
+    .chat-minimize {
+      background: rgba(255, 255, 255, 0.15);
+      border: none;
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .chat-minimize:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    /* Chat Messages */
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background: var(--bg);
+      scrollbar-width: thin;
+    }
+
+    .chat-messages::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .chat-messages::-webkit-scrollbar-thumb {
+      background: rgba(26, 35, 126, 0.2);
+      border-radius: 2px;
+    }
+
+    .message {
+      display: flex;
+      gap: 10px;
+      max-width: 85%;
+      animation: msg-appear 0.3s ease-out;
+    }
+
+    @keyframes msg-appear {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .message.bot {
+      align-self: flex-start;
+    }
+
+    .message.user {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+
+    .msg-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .bot .msg-avatar {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
+    }
+
+    .user .msg-avatar {
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      color: #fff;
+    }
+
+    .msg-content {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .msg-bubble {
+      padding: 12px 16px;
+      border-radius: 16px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    .bot .msg-bubble {
+      background: var(--card-bg);
+      color: var(--text);
+      border-bottom-left-radius: 4px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .user .msg-bubble {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
+      border-bottom-right-radius: 4px;
+    }
+
+    .msg-time {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      padding: 0 4px;
+    }
+
+    .user .msg-time {
+      text-align: right;
+    }
+
+    /* Quick replies inside chat */
+    .quick-replies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .quick-reply-btn {
+      padding: 6px 14px;
+      background: rgba(26, 35, 126, 0.06);
+      border: 1px solid rgba(26, 35, 126, 0.12);
+      border-radius: var(--radius-full);
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--primary);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .quick-reply-btn:hover {
+      background: rgba(26, 35, 126, 0.12);
+      transform: translateY(-1px);
+    }
+
+    /* Typing indicator */
+    .typing-indicator {
+      display: flex;
+      gap: 10px;
+      align-self: flex-start;
+      max-width: 85%;
+    }
+
+    .typing-dots {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 14px 18px;
+      background: var(--card-bg);
+      border-radius: 16px;
+      border-bottom-left-radius: 4px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .typing-dots span {
+      width: 8px;
+      height: 8px;
+      background: var(--text-muted);
+      border-radius: 50%;
+      animation: typing-bounce 1.4s ease-in-out infinite;
+    }
+
+    .typing-dots span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .typing-dots span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes typing-bounce {
+
+      0%,
+      60%,
+      100% {
+        transform: translateY(0);
+        opacity: 0.4;
+      }
+
+      30% {
+        transform: translateY(-8px);
+        opacity: 1;
+      }
+    }
+
+    /* Chat Input */
+    .chat-input-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+      background: var(--card-bg);
+      border-top: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .chat-input {
+      flex: 1;
+      padding: 10px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-full);
+      font-size: 0.9rem;
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--bg);
+      outline: none;
+      transition: var(--transition);
+      min-height: 44px;
+    }
+
+    .chat-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(26, 35, 126, 0.1);
+    }
+
+    .chat-input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .chat-send {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+
+    .chat-send:hover {
+      background: linear-gradient(135deg, var(--primary-light), var(--primary));
+      transform: scale(1.05);
+      box-shadow: 0 4px 16px rgba(26, 35, 126, 0.3);
+    }
+
+    .chat-send:active {
+      transform: scale(0.95);
+    }
+
+    /* ============================================
+       FOOTER
+    ============================================ */
+    .footer {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: rgba(255, 255, 255, 0.8);
+      padding: 48px clamp(1rem, 4vw, 2rem) 32px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .footer-brand {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    .footer-info {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .footer-info a {
+      color: var(--accent-light);
+      text-decoration: underline;
+    }
+
+    .footer-divider {
+      width: 80px;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.15);
+      margin: 20px auto;
+      border-radius: 1px;
+    }
+
+    /* ============================================
+       ANIMATIONS & UTILITIES
+    ============================================ */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================
+       MOBILE RESPONSIVE
+    ============================================ */
+    @media (max-width: 1024px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .colleges-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: var(--card-bg);
+        flex-direction: column;
+        padding: 80px 24px 40px;
+        gap: 4px;
+        box-shadow: var(--shadow-xl);
+        transition: right 0.3s ease;
+        z-index: 999;
+      }
+
+      .nav-links.open {
+        right: 0;
+      }
+
+      .nav-links a {
+        width: 100%;
+        padding: 14px 20px;
+        border-radius: var(--radius-md);
+        font-size: 1rem;
+      }
+
+      .nav-hamburger {
+        display: flex;
+      }
+
+      .mobile-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 998;
+      }
+
+      .mobile-overlay.active {
+        display: block;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .stat-card {
+        padding: 20px 16px;
+      }
+
+      .colleges-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .chat-panel {
+        bottom: 0;
+        right: 0;
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+        transform: translateY(100%);
+        opacity: 1;
+      }
+
+      .chat-panel.open {
+        transform: translateY(0);
+      }
+
+      .chat-fab {
+        bottom: 20px;
+        right: 20px;
+        width: 56px;
+        height: 56px;
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stat-card {
+        padding: 16px 12px;
+      }
+
+      .stat-number {
+        font-size: 1.5rem;
+      }
+
+      .chip {
+        font-size: 0.82rem;
+        padding: 10px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <span class="logo-icon">🎓</span>
+        <span>College<span class="logo-accent">Bot</span> Maharashtra</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#colleges">Colleges</a></li>
+        <li><a href="#compare">Compare</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#" class="nav-cta" id="navChatBtn" onclick="toggleChat(event)">Ask ChatBot 🤖</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-overlay" id="mobileOverlay"></div>
+
+  <!-- ========== HERO SECTION ========== -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+      <div class="shape shape-4"></div>
+      <div class="shape shape-5"></div>
+    </div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="pulse-dot"></span>
+        AI-Powered College Guidance — Updated 2025-26
+      </div>
+      <h1>Find Your <span class="highlight">Perfect Engineering College</span> in Maharashtra</h1>
+      <p class="hero-subtitle">Ask about fees, placements, cutoffs & more — instantly powered by our intelligent
+        assistant</p>
+      <div class="hero-buttons">
+        <button class="btn btn-primary" onclick="toggleChat(event)">Chat with Assistant 🤖</button>
+        <a href="#colleges" class="btn btn-secondary">Browse Colleges 📚</a>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== QUICK STATS BAR ========== -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-card fade-in-up">
+        <span class="stat-icon">🏫</span>
+        <div class="stat-number"><span data-target="10" class="counter">0</span></div>
+        <div class="stat-label">Colleges Covered</div>
+      </div>
+      <div class="stat-card fade-in-up">
+        <span class="stat-icon">💼</span>
+        <div class="stat-number">₹<span data-target="80" class="counter">0</span> <span class="suffix">LPA</span></div>
+        <div class="stat-label">Highest Package</div>
+      </div>
+      <div class="stat-card fade-in-up">
+        <span class="stat-icon">📊</span>
+        <div class="stat-number"><span data-target="95" class="counter">0</span><span class="suffix">%</span></div>
+        <div class="stat-label">Max Placement Rate</div>
+      </div>
+      <div class="stat-card fade-in-up">
+        <span class="stat-icon">📈</span>
+        <div class="stat-number"><span data-target="93" class="counter">0</span><span class="suffix">+</span></div>
+        <div class="stat-label">Min Cutoff (Open)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== COLLEGE CARDS ========== -->
+  <section class="section" id="colleges">
+    <div class="section-header fade-in-up">
+      <div class="section-tag">🏛️ Top Colleges</div>
+      <h2 class="section-title">Maharashtra's Top Engineering Colleges</h2>
+      <p class="section-subtitle">Explore detailed stats for each college — fees, packages, placements & cutoffs at a
+        glance</p>
+    </div>
+    <div class="colleges-grid" id="collegesGrid">
+      <!-- Cards injected by JS -->
+    </div>
+  </section>
+
+  <!-- ========== QUICK QUESTION CHIPS ========== -->
+  <section class="section chips-section" id="about">
+    <div class="section-header fade-in-up">
+      <div class="section-tag">💬 Ask Anything</div>
+      <h2 class="section-title">Ask Me Anything About These Colleges</h2>
+      <p class="section-subtitle">Click a question to instantly get answers from our AI assistant</p>
+    </div>
+    <div class="chips-container fade-in-up" id="chipsContainer">
+      <!-- Chips injected by JS -->
+    </div>
+  </section>
+
+  <!-- ========== COMPARISON TABLE ========== -->
+  <section class="section compare-section" id="compare">
+    <div class="section-header fade-in-up">
+      <div class="section-tag">📊 Compare</div>
+      <h2 class="section-title">College Comparison Table</h2>
+      <p class="section-subtitle">Side-by-side comparison — click any column header to sort</p>
+    </div>
+    <div class="table-wrapper fade-in-up">
+      <table class="compare-table" id="compareTable">
+        <thead>
+          <tr>
+            <th data-sort="name">College <span class="sort-icon">↕</span></th>
+            <th data-sort="city">City <span class="sort-icon">↕</span></th>
+            <th data-sort="type">Type <span class="sort-icon">↕</span></th>
+            <th data-sort="fees">Fees/yr <span class="sort-icon">↕</span></th>
+            <th data-sort="highest">Highest Pkg <span class="sort-icon">↕</span></th>
+            <th data-sort="avg">Avg Pkg <span class="sort-icon">↕</span></th>
+            <th data-sort="placement">Placement % <span class="sort-icon">↕</span></th>
+            <th data-sort="cutoff">Cutoff (Open) <span class="sort-icon">↕</span></th>
+          </tr>
+        </thead>
+        <tbody id="compareBody">
+          <!-- Rows injected by JS -->
+        </tbody>
+      </table>
+    </div>
+    <div class="table-legend fade-in-up">
+      <span class="legend-swatch"></span>
+      <span>Highlighted row = Best overall value (highest placement rate)</span>
+    </div>
+  </section>
+
+  <!-- ========== CHATBOT FAB ========== -->
+  <button class="chat-fab" id="chatFab" onclick="toggleChat(event)" aria-label="Open chatbot">
+    🤖
+    <span class="fab-badge" id="fabBadge" style="display:none;">1</span>
+  </button>
+
+  <!-- ========== CHATBOT PANEL ========== -->
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-header">
+      <div class="chat-header-info">
+        <div class="chat-avatar">🎓</div>
+        <div class="chat-header-text">
+          <h3>College Assistant</h3>
+          <div class="chat-status"><span class="chat-status-dot"></span> Online</div>
+        </div>
+      </div>
+      <button class="chat-minimize" onclick="toggleChat(event)" aria-label="Minimize chat">✕</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <!-- Messages injected by JS -->
+    </div>
+    <div class="chat-input-area">
+      <input type="text" class="chat-input" id="chatInput" placeholder="Ask about any college..." autocomplete="off">
+      <button class="chat-send" id="chatSend" onclick="sendMessage()" aria-label="Send message">➤</button>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">🎓 CollegeBot Maharashtra</div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#colleges">Colleges</a>
+        <a href="#compare">Compare</a>
+        <a href="#about">About</a>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-info">
+        <p>📋 Data sourced from official college websites & MHT-CET records (2024-25 cycle)</p>
+        <p>🔗 For official cutoffs visit: <a href="https://cetcell.mahacet.org" target="_blank"
+            rel="noopener">cetcell.mahacet.org</a></p>
+        <p>⚠️ This chatbot is for informational purposes only. Always verify details from official sources before making
+          decisions.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== JAVASCRIPT ========== -->
+  <script>
+    // ============================================
+    //  COLLEGE DATA
+    // ============================================
+    const colleges = [
+      {
+        name: "COEP Technological University",
+        short: "COEP",
+        city: "Pune",
+        type: "Government",
+        typeClass: "type-govt",
+        fees: 135000,
+        highest: 52,
+        avg: 9.5,
+        placement: 92,
+        cutoff: 99.4
+      },
+      {
+        name: "VJTI Mumbai",
+        short: "VJTI",
+        city: "Mumbai",
+        type: "Government",
+        typeClass: "type-govt",
+        fees: 78000,
+        highest: 54,
+        avg: 10,
+        placement: 90,
+        cutoff: 99.2
+      },
+      {
+        name: "PICT Pune",
+        short: "PICT",
+        city: "Pune",
+        type: "Private",
+        typeClass: "type-private",
+        fees: 189000,
+        highest: 45,
+        avg: 8.5,
+        placement: 95,
+        cutoff: 97.5
+      },
+      {
+        name: "SPIT Mumbai",
+        short: "SPIT",
+        city: "Mumbai",
+        type: "Private",
+        typeClass: "type-private",
+        fees: 225000,
+        highest: 43,
+        avg: 8,
+        placement: 88,
+        cutoff: 96.8
+      },
+      {
+        name: "DJ Sanghvi Mumbai",
+        short: "DJSCE",
+        city: "Mumbai",
+        type: "Private",
+        typeClass: "type-private",
+        fees: 250000,
+        highest: 41,
+        avg: 7.5,
+        placement: 85,
+        cutoff: 96.2
+      },
+      {
+        name: "VNIT Nagpur",
+        short: "VNIT",
+        city: "Nagpur",
+        type: "Government",
+        typeClass: "type-govt",
+        fees: 165000,
+        highest: 80,
+        avg: 12,
+        placement: 90,
+        cutoff: 98.5
+      },
+      {
+        name: "VIT Pune",
+        short: "VIT",
+        city: "Pune",
+        type: "Private",
+        typeClass: "type-private",
+        fees: 195000,
+        highest: 44,
+        avg: 7,
+        placement: 82,
+        cutoff: 93.5
+      },
+      {
+        name: "MIT WPU Pune",
+        short: "MIT WPU",
+        city: "Pune",
+        type: "Private",
+        typeClass: "type-private",
+        fees: 310000,
+        highest: 42,
+        avg: 6.5,
+        placement: 80,
+        cutoff: 85.0
+      },
+      {
+        name: "ICT Mumbai",
+        short: "ICT",
+        city: "Mumbai",
+        type: "Autonomous",
+        typeClass: "type-autonomous",
+        fees: 148000,
+        highest: 70,
+        avg: 14,
+        placement: 93,
+        cutoff: 99.0
+      },
+      {
+        name: "Walchand Sangli",
+        short: "WCE",
+        city: "Sangli",
+        type: "Government",
+        typeClass: "type-govt",
+        fees: 110000,
+        highest: 38,
+        avg: 6.5,
+        placement: 85,
+        cutoff: 95.0
+      }
+    ];
+
+    const quickChips = [
+      { text: "PICT fees", icon: "💰" },
+      { text: "VJTI placement", icon: "📊" },
+      { text: "Compare COEP and VJTI", icon: "⚖️" },
+      { text: "Best college for CSE", icon: "🏆" },
+      { text: "Lowest cutoff college", icon: "📉" },
+      { text: "Government colleges Maharashtra", icon: "🏛️" },
+      { text: "COEP vs VJTI", icon: "🔀" },
+      { text: "PICT ranking", icon: "🥇" },
+      { text: "VIT Pune review", icon: "📝" },
+      { text: "Colleges in Mumbai", icon: "🌆" }
+    ];
+
+    // ============================================
+    //  CHATBOT KNOWLEDGE BASE
+    // ============================================
+    const knowledgeBase = {
+      greetings: [
+        "Hello! 👋 I'm your Maharashtra Engineering College Assistant. I can help you with:\n\n📋 College fees & cutoffs\n💼 Placement statistics\n📊 College comparisons\n🏆 Rankings & recommendations\n\nWhat would you like to know?",
+        "Hey there! 🎓 Welcome to CollegeBot Maharashtra! Ask me anything about top engineering colleges in Maharashtra — fees, placements, cutoffs, you name it!",
+        "Hi! 😊 Ready to help you find your perfect engineering college. What's on your mind?"
+      ],
+      fallback: [
+        "I'm not sure about that one. Try asking about a specific college's fees, placements, or cutoffs! For example: 'COEP fees' or 'VJTI placement'.",
+        "Hmm, I couldn't find that info. I can help with fees, placements, cutoffs, and comparisons for 10 top Maharashtra colleges. What would you like to know?",
+        "I didn't quite catch that. Try questions like 'PICT fees', 'Compare COEP and VJTI', or 'Best college for CSE'."
+      ]
+    };
+
+    function getCollegeResponse(query) {
+      const q = query.toLowerCase().trim();
+
+      // Greeting patterns
+      if (/^(hi|hello|hey|hola|namaste|good morning|good evening|good afternoon|sup|what's up)/.test(q)) {
+        return { text: knowledgeBase.greetings[Math.floor(Math.random() * knowledgeBase.greetings.length)], quickReplies: ["COEP fees", "Compare colleges", "Best placement"] };
+      }
+
+      // Thanks
+      if (/^(thanks|thank you|thankyou|thx|ty)/.test(q)) {
+        return { text: "You're welcome! 😊 Feel free to ask anything else about Maharashtra engineering colleges!", quickReplies: ["PICT fees", "VNIT placement", "Lowest cutoff"] };
+      }
+
+      // Help
+      if (/^(help|what can you do|menu|options)/.test(q)) {
+        return { text: "I can help you with:\n\n🏫 **College Info** — Ask about any of the 10 colleges\n💰 **Fees** — e.g., 'COEP fees'\n💼 **Placements** — e.g., 'VJTI placement'\n📉 **Cutoffs** — e.g., 'PICT cutoff'\n⚖️ **Compare** — e.g., 'Compare COEP and VJTI'\n🏆 **Best/Ranking** — e.g., 'Best college for CSE'\n🏛️ **Filters** — e.g., 'Government colleges'\n🌆 **City** — e.g., 'Colleges in Mumbai'", quickReplies: ["COEP fees", "VJTI placement", "Compare colleges"] };
+      }
+
+      // Compare two colleges
+      const compareMatch = q.match(/(?:compare|vs|versus|difference between)\s+(coep|vjti|pict|spit|djsce|dj sanghvi|vnit|vit|mit wpu|ict|walchand|wce)\s+(?:and|vs|versus|with|&)\s+(coep|vjti|pict|spit|djsce|dj sanghvi|vnit|vit|mit wpu|ict|walchand|wce)/i);
+      if (compareMatch) {
+        const c1 = findCollege(compareMatch[1]);
+        const c2 = findCollege(compareMatch[2]);
+        if (c1 && c2) {
+          return {
+            text: `⚖️ **${c1.name} vs ${c2.name}**\n\n` +
+              `📍 City: ${c1.city} vs ${c2.city}\n` +
+              `💰 Fees: ₹${formatNum(c1.fees)}/yr vs ₹${formatNum(c2.fees)}/yr\n` +
+              `💼 Highest Pkg: ₹${c1.highest} LPA vs ₹${c2.highest} LPA\n` +
+              `📊 Avg Pkg: ₹${c1.avg} LPA vs ₹${c2.avg} LPA\n` +
+              `📈 Placement: ${c1.placement}% vs ${c2.placement}%\n` +
+              `📉 Cutoff: ${c1.cutoff}% vs ${c2.cutoff}%\n\n` +
+              `✅ **Verdict:** ${c1.placement > c2.placement ? c1.short : c2.short} has better placement rates, while ${c1.fees < c2.fees ? c1.short : c2.short} is more affordable.`,
+            quickReplies: [`${c1.short} fees`, `${c2.short} placement`, "Best college for CSE"]
+          };
+        }
+      }
+
+      // Single college query
+      for (const college of colleges) {
+        const names = [college.short.toLowerCase(), college.name.toLowerCase()];
+        if (college.short === "DJSCE") names.push("dj sanghvi", "djsce");
+        if (college.short === "WCE") names.push("walchand");
+        if (college.short === "MIT WPU") names.push("mit", "mit wpu");
+
+        const matched = names.some(n => q.includes(n));
+        if (!matched) continue;
+
+        // Fees query
+        if (/fee|cost|tuition|price|expense|afford/.test(q)) {
+          return {
+            text: `💰 **${college.name} — Fees**\n\nAnnual tuition: ₹${formatNum(college.fees)}/year\nApprox 4-year total: ₹${formatNum(college.fees * 4)}\nType: ${college.type}\n\n${college.type === 'Government' ? '✅ As a government college, additional scholarships may be available through EBC/EWS/OBC categories.' : '💡 Private college — check for merit-based fee waivers and education loans.'}`,
+            quickReplies: [`${college.short} placement`, `${college.short} cutoff`, `Compare ${college.short}`]
+          };
+        }
+
+        // Placement query
+        if (/placement|placed|package|salary|recruit|hire|job|lpa/.test(q)) {
+          return {
+            text: `💼 **${college.name} — Placements**\n\n📊 Placement Rate: ${college.placement}%\n🏆 Highest Package: ₹${college.highest} LPA\n📈 Average Package: ₹${college.avg} LPA\n\nTop recruiters include leading IT, core, and product-based companies. CSE/IT branches typically see the highest packages.`,
+            quickReplies: [`${college.short} fees`, `${college.short} cutoff`, `Best placement college`]
+          };
+        }
+
+        // Cutoff query
+        if (/cutoff|cut-off|percentile|rank|score|admission|jee|mht|cet/.test(q)) {
+          return {
+            text: `📉 **${college.name} — Cutoffs**\n\nMHT-CET Cutoff (Open/General): ${college.cutoff} percentile\n\n📋 Category-wise cutoffs are typically:\n• OBC: ~${(college.cutoff - 2).toFixed(1)} percentile\n• SC: ~${(college.cutoff - 8).toFixed(1)} percentile\n• ST: ~${(college.cutoff - 12).toFixed(1)} percentile\n\n⚠️ Cutoffs vary by branch. CSE/IT branches have the highest cutoffs.\n\n🔗 Official: cetcell.mahacet.org`,
+            quickReplies: [`${college.short} fees`, `${college.short} placement`, "Lowest cutoff college"]
+          };
+        }
+
+        // Review / general
+        if (/review|about|tell|info|detail|overview|rating|good/.test(q)) {
+          return {
+            text: `🏫 **${college.name}**\n\n📍 City: ${college.city}\n🏛️ Type: ${college.type}\n💰 Fees: ₹${formatNum(college.fees)}/yr\n💼 Highest Pkg: ₹${college.highest} LPA\n📊 Avg Pkg: ₹${college.avg} LPA\n📈 Placement: ${college.placement}%\n📉 Cutoff: ${college.cutoff} percentile\n\n${college.type === 'Government' ? '✅ Government funded with affordable fees and strong alumni network.' : '🏢 Well-equipped private institution with industry connections.'}`,
+            quickReplies: [`${college.short} fees`, `${college.short} placement`, `${college.short} cutoff`]
+          };
+        }
+
+        // Ranking
+        if (/rank|ranking|position|nirf/.test(q)) {
+          const sorted = [...colleges].sort((a, b) => b.placement - a.placement);
+          const rank = sorted.findIndex(c => c.short === college.short) + 1;
+          return {
+            text: `🥇 **${college.name} — Ranking**\n\nIn our database ranking (by placement rate):\n📊 Rank: #${rank} out of 10 colleges\n📈 Placement Rate: ${college.placement}%\n\n${rank <= 3 ? '🏆 One of the top-performing colleges in Maharashtra!' : rank <= 6 ? '✅ Solid mid-tier performer with good opportunities.' : '💡 Consider stronger branches like CSE/IT for better placements.'}`,
+            quickReplies: [`${college.short} fees`, "Best college overall", "Compare colleges"]
+          };
+        }
+
+        // Default for matched college
+        return {
+          text: `🏫 **${college.name}** (${college.city})\n\n💰 Fees: ₹${formatNum(college.fees)}/yr\n💼 Highest: ₹${college.highest} LPA | Avg: ₹${college.avg} LPA\n📈 Placement: ${college.placement}%\n📉 Cutoff: ${college.cutoff} percentile\n\nWhat specific info do you need? Try asking about fees, placements, or cutoffs!`,
+          quickReplies: [`${college.short} fees`, `${college.short} placement`, `${college.short} cutoff`]
+        };
+      }
+
+      // Best college queries
+      if (/best|top|number one|no\.?\s*1|#1|recommended|suggest/.test(q)) {
+        if (/cse|computer|cs|it|software|tech|coding/.test(q)) {
+          return {
+            text: "🏆 **Best Colleges for CSE/IT in Maharashtra:**\n\n1. **VNIT Nagpur** — ₹80 LPA highest, 90% placement\n2. **COEP Pune** — ₹52 LPA highest, 92% placement\n3. **PICT Pune** — ₹45 LPA highest, 95% placement\n4. **ICT Mumbai** — ₹70 LPA highest, 93% placement\n5. **VJTI Mumbai** — ₹54 LPA highest, 90% placement\n\n💡 PICT has the highest overall placement rate at 95%, while VNIT offers the highest package potential.",
+            quickReplies: ["PICT fees", "VNIT placement", "Compare COEP and PICT"]
+          };
+        }
+        if (/placement|placed|job|package/.test(q)) {
+          const sorted = [...colleges].sort((a, b) => b.placement - a.placement);
+          const top3 = sorted.slice(0, 3);
+          return {
+            text: `🏆 **Top Colleges by Placement Rate:**\n\n${top3.map((c, i) => `${i + 1}. **${c.name}** — ${c.placement}% placement, ₹${c.highest} LPA highest`).join('\n')}\n\n💡 ${top3[0].short} leads with ${top3[0].placement}% placement!`,
+            quickReplies: [`${top3[0].short} fees`, `${top3[1].short} placement`, "Compare colleges"]
+          };
+        }
+        return {
+          text: "🏆 **Top Engineering Colleges in Maharashtra (Overall):**\n\n1. **VNIT Nagpur** — NIT, ₹80 LPA top package\n2. **ICT Mumbai** — Autonomous, ₹70 LPA top\n3. **COEP Pune** — Government, 92% placements\n4. **PICT Pune** — Private, 95% placements\n5. **VJTI Mumbai** — Government, strong legacy\n\n📊 Rankings depend on criteria: placements, packages, fees, or cutoffs. What matters most to you?",
+          quickReplies: ["Best placement", "Lowest fees", "Highest package"]
+        };
+      }
+
+      // Government colleges
+      if (/government|govt|public|sarkari/.test(q)) {
+        const govtColleges = colleges.filter(c => c.type === 'Government');
+        return {
+          text: `🏛️ **Government Engineering Colleges in Maharashtra:**\n\n${govtColleges.map(c => `• **${c.name}** (${c.city}) — ₹${formatNum(c.fees)}/yr, ${c.placement}% placement`).join('\n')}\n\n✅ Government colleges offer lower fees with excellent ROI!`,
+          quickReplies: ["COEP fees", "VJTI placement", "VNIT cutoff"]
+        };
+      }
+
+      // City filter
+      if (/mumbai|bombay/.test(q) && /college/.test(q)) {
+        const mumbaiColleges = colleges.filter(c => c.city === 'Mumbai');
+        return {
+          text: `🌆 **Engineering Colleges in Mumbai:**\n\n${mumbaiColleges.map(c => `• **${c.name}** (${c.type}) — ₹${formatNum(c.fees)}/yr, ${c.placement}% placement`).join('\n')}`,
+          quickReplies: ["VJTI fees", "SPIT placement", "ICT cutoff"]
+        };
+      }
+
+      if (/pune/.test(q) && /college/.test(q)) {
+        const puneColleges = colleges.filter(c => c.city === 'Pune');
+        return {
+          text: `🏙️ **Engineering Colleges in Pune:**\n\n${puneColleges.map(c => `• **${c.name}** (${c.type}) — ₹${formatNum(c.fees)}/yr, ${c.placement}% placement`).join('\n')}`,
+          quickReplies: ["COEP fees", "PICT placement", "VIT cutoff"]
+        };
+      }
+
+      // Lowest cutoff
+      if (/lowest|minimum|min|easiest|easy|low/.test(q) && /cutoff|cut-off|admission|entry/.test(q)) {
+        const sorted = [...colleges].sort((a, b) => a.cutoff - b.cutoff);
+        const bottom3 = sorted.slice(0, 3);
+        return {
+          text: `📉 **Colleges with Lowest Cutoffs (Easiest Admission):**\n\n${bottom3.map((c, i) => `${i + 1}. **${c.name}** — ${c.cutoff} percentile`).join('\n')}\n\n💡 ${bottom3[0].short} has the most accessible cutoff at ${bottom3[0].cutoff} percentile!`,
+          quickReplies: [`${bottom3[0].short} fees`, `${bottom3[1].short} placement`, "Best college overall"]
+        };
+      }
+
+      // Lowest fees
+      if (/cheap|affordable|lowest fee|low fee|budget|economical/.test(q)) {
+        const sorted = [...colleges].sort((a, b) => a.fees - b.fees);
+        const bottom3 = sorted.slice(0, 3);
+        return {
+          text: `💰 **Most Affordable Engineering Colleges:**\n\n${bottom3.map((c, i) => `${i + 1}. **${c.name}** — ₹${formatNum(c.fees)}/yr (${c.type})`).join('\n')}\n\n✅ Government colleges generally offer the most affordable fees!`,
+          quickReplies: [`${bottom3[0].short} placement`, `${bottom3[1].short} cutoff`, "Government colleges"]
+        };
+      }
+
+      // Highest package
+      if (/highest package|top package|max salary|best package/.test(q)) {
+        const sorted = [...colleges].sort((a, b) => b.highest - a.highest);
+        const top3 = sorted.slice(0, 3);
+        return {
+          text: `💼 **Colleges with Highest Packages:**\n\n${top3.map((c, i) => `${i + 1}. **${c.name}** — ₹${c.highest} LPA`).join('\n')}\n\n🏆 ${top3[0].short} leads with ₹${top3[0].highest} LPA! These are typically for CSE/IT branch toppers.`,
+          quickReplies: [`${top3[0].short} placement`, `${top3[1].short} fees`, "Best for CSE"]
+        };
+      }
+
+      // Fallback
+      return {
+        text: knowledgeBase.fallback[Math.floor(Math.random() * knowledgeBase.fallback.length)],
+        quickReplies: ["COEP fees", "PICT placement", "Compare colleges", "Help"]
+      };
+    }
+
+    function findCollege(shortName) {
+      const s = shortName.toLowerCase().trim();
+      return colleges.find(c => {
+        const names = [c.short.toLowerCase(), c.name.toLowerCase()];
+        if (c.short === "DJSCE") names.push("dj sanghvi", "djsce");
+        if (c.short === "WCE") names.push("walchand");
+        if (c.short === "MIT WPU") names.push("mit", "mit wpu");
+        return names.some(n => n.includes(s) || s.includes(n));
+      });
+    }
+
+    function formatNum(n) {
+      return n.toLocaleString('en-IN');
+    }
+
+    // ============================================
+    //  RENDER COLLEGE CARDS
+    // ============================================
+    function renderCollegeCards() {
+      const grid = document.getElementById('collegesGrid');
+      grid.innerHTML = colleges.map(c => `
+        <div class="college-card fade-in-up">
+          <span class="college-type-badge ${c.typeClass}">${c.type}</span>
+          <div class="college-card-header">
+            <h3 class="college-name">${c.name}</h3>
+            <span class="city-badge">📍 ${c.city}</span>
+          </div>
+          <div class="college-stats">
+            <div class="college-stat">
+              <div class="college-stat-label">Fees/Year</div>
+              <div class="college-stat-value">₹${formatNum(c.fees)}</div>
+            </div>
+            <div class="college-stat">
+              <div class="college-stat-label">Highest Pkg</div>
+              <div class="college-stat-value">₹${c.highest} LPA</div>
+            </div>
+            <div class="college-stat">
+              <div class="college-stat-label">Placement</div>
+              <div class="college-stat-value highlight-value">${c.placement}%</div>
+            </div>
+            <div class="college-stat">
+              <div class="college-stat-label">Cutoff (Open)</div>
+              <div class="college-stat-value">${c.cutoff}%</div>
+            </div>
+          </div>
+          <div class="college-card-footer">
+            <button class="btn-ask-bot" onclick="askAboutCollege('${c.short}')">Ask Bot about ${c.short} →</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // ============================================
+    //  RENDER QUICK CHIPS
+    // ============================================
+    function renderChips() {
+      const container = document.getElementById('chipsContainer');
+      container.innerHTML = quickChips.map(chip => `
+        <button class="chip" onclick="chipClick('${chip.text}')">
+          <span class="chip-icon">${chip.icon}</span>
+          ${chip.text}
+        </button>
+      `).join('');
+    }
+
+    // ============================================
+    //  RENDER COMPARISON TABLE
+    // ============================================
+    let sortState = { key: null, asc: true };
+
+    function renderTable() {
+      const tbody = document.getElementById('compareBody');
+      const bestPlacement = Math.max(...colleges.map(c => c.placement));
+
+      let data = [...colleges];
+      if (sortState.key) {
+        data.sort((a, b) => {
+          let valA, valB;
+          switch (sortState.key) {
+            case 'name': valA = a.name; valB = b.name; break;
+            case 'city': valA = a.city; valB = b.city; break;
+            case 'type': valA = a.type; valB = b.type; break;
+            case 'fees': valA = a.fees; valB = b.fees; break;
+            case 'highest': valA = a.highest; valB = b.highest; break;
+            case 'avg': valA = a.avg; valB = b.avg; break;
+            case 'placement': valA = a.placement; valB = b.placement; break;
+            case 'cutoff': valA = a.cutoff; valB = b.cutoff; break;
+          }
+          if (typeof valA === 'string') {
+            return sortState.asc ? valA.localeCompare(valB) : valB.localeCompare(valA);
+          }
+          return sortState.asc ? valA - valB : valB - valA;
+        });
+      }
+
+      tbody.innerHTML = data.map(c => `
+        <tr class="${c.placement === bestPlacement ? 'best-value' : ''}">
+          <td class="college-name-cell">${c.name}</td>
+          <td>${c.city}</td>
+          <td>${c.type}</td>
+          <td>₹${formatNum(c.fees)}</td>
+          <td>₹${c.highest} LPA</td>
+          <td>₹${c.avg} LPA</td>
+          <td>${c.placement}%</td>
+          <td>${c.cutoff}%</td>
+        </tr>
+      `).join('');
+    }
+
+    // Table sort handler
+    document.getElementById('compareTable').addEventListener('click', (e) => {
+      const th = e.target.closest('th');
+      if (!th) return;
+      const key = th.dataset.sort;
+      if (!key) return;
+
+      // Update sort state
+      if (sortState.key === key) {
+        sortState.asc = !sortState.asc;
+      } else {
+        sortState.key = key;
+        sortState.asc = true;
+      }
+
+      // Update UI
+      document.querySelectorAll('.compare-table th').forEach(h => {
+        h.classList.remove('sorted');
+        h.querySelector('.sort-icon').textContent = '↕';
+      });
+      th.classList.add('sorted');
+      th.querySelector('.sort-icon').textContent = sortState.asc ? '↑' : '↓';
+
+      renderTable();
+    });
+
+    // ============================================
+    //  CHATBOT LOGIC
+    // ============================================
+    let chatOpen = false;
+    const chatMessages = document.getElementById('chatMessages');
+    const chatInput = document.getElementById('chatInput');
+    const chatPanel = document.getElementById('chatPanel');
+    const chatFab = document.getElementById('chatFab');
+    const fabBadge = document.getElementById('fabBadge');
+
+    // Message timestamps
+    const messageTimestamps = [];
+
+    function getRelativeTime(timestamp) {
+      const diff = Math.floor((Date.now() - timestamp) / 1000);
+      if (diff < 10) return "Just now";
+      if (diff < 60) return `${diff}s ago`;
+      if (diff < 3600) return `${Math.floor(diff / 60)} min ago`;
+      return `${Math.floor(diff / 3600)}h ago`;
+    }
+
+    function updateTimes() {
+      document.querySelectorAll('.msg-time').forEach((el, i) => {
+        if (messageTimestamps[i]) {
+          el.textContent = getRelativeTime(messageTimestamps[i]);
+        }
+      });
+    }
+
+    setInterval(updateTimes, 30000);
+
+    function addMessage(text, sender, quickReplies) {
+      const timestamp = Date.now();
+      messageTimestamps.push(timestamp);
+
+      const msgDiv = document.createElement('div');
+      msgDiv.className = `message ${sender}`;
+
+      const avatar = sender === 'bot' ? '🎓' : '👤';
+
+      // Format text: bold markers
+      let formattedText = text
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\n/g, '<br>');
+
+      let quickRepliesHTML = '';
+      if (quickReplies && quickReplies.length > 0 && sender === 'bot') {
+        quickRepliesHTML = `
+          <div class="quick-replies">
+            ${quickReplies.map(qr => `<button class="quick-reply-btn" onclick="chipClick('${qr}')">${qr}</button>`).join('')}
+          </div>
+        `;
+      }
+
+      msgDiv.innerHTML = `
+        <div class="msg-avatar">${avatar}</div>
+        <div class="msg-content">
+          <div class="msg-bubble">${formattedText}</div>
+          ${quickRepliesHTML}
+          <span class="msg-time">Just now</span>
+        </div>
+      `;
+
+      chatMessages.appendChild(msgDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function showTyping() {
+      const typingDiv = document.createElement('div');
+      typingDiv.className = 'typing-indicator';
+      typingDiv.id = 'typingIndicator';
+      typingDiv.innerHTML = `
+        <div class="msg-avatar" style="background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: #fff; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.9rem;">🎓</div>
+        <div class="typing-dots">
+          <span></span><span></span><span></span>
+        </div>
+      `;
+      chatMessages.appendChild(typingDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function hideTyping() {
+      const typing = document.getElementById('typingIndicator');
+      if (typing) typing.remove();
+    }
+
+    function sendMessage(prefilled) {
+      const text = prefilled || chatInput.value.trim();
+      if (!text) return;
+
+      chatInput.value = '';
+      addMessage(text, 'user');
+
+      showTyping();
+
+      // Simulate response delay
+      const delay = 800 + Math.random() * 700;
+      setTimeout(() => {
+        hideTyping();
+        const response = getCollegeResponse(text);
+        addMessage(response.text, 'bot', response.quickReplies);
+      }, delay);
+    }
+
+    function toggleChat(e) {
+      if (e) e.preventDefault();
+      chatOpen = !chatOpen;
+      chatPanel.classList.toggle('open', chatOpen);
+      chatFab.classList.toggle('hidden', chatOpen);
+      fabBadge.style.display = 'none';
+
+      // Close mobile nav if open
+      document.getElementById('navLinks').classList.remove('open');
+      document.getElementById('hamburger').classList.remove('active');
+      document.getElementById('mobileOverlay').classList.remove('active');
+
+      if (chatOpen) {
+        setTimeout(() => chatInput.focus(), 400);
+      }
+    }
+
+    function askAboutCollege(short) {
+      if (!chatOpen) toggleChat();
+      setTimeout(() => sendMessage(`Tell me about ${short}`), 500);
+    }
+
+    function chipClick(text) {
+      if (!chatOpen) toggleChat();
+      setTimeout(() => sendMessage(text), 400);
+    }
+
+    // Enter key
+    chatInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+
+    // Initial bot message
+    function initChat() {
+      addMessage("Hello! 👋 I'm your Maharashtra Engineering College Assistant.\n\nI can help you with:\n📋 College fees & cutoffs\n💼 Placement statistics\n📊 College comparisons\n🏆 Rankings & recommendations\n\nWhat would you like to know?", 'bot', ["COEP fees", "Best college", "Compare colleges"]);
+    }
+
+    // Show notification badge after delay
+    setTimeout(() => {
+      if (!chatOpen) {
+        fabBadge.style.display = 'flex';
+      }
+    }, 5000);
+
+    // ============================================
+    //  NAVBAR FUNCTIONALITY
+    // ============================================
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('open');
+      mobileOverlay.classList.toggle('active');
+    });
+
+    mobileOverlay.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('open');
+      mobileOverlay.classList.remove('active');
+    });
+
+    // Close mobile nav on link click
+    navLinks.querySelectorAll('a:not(.nav-cta)').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('open');
+        mobileOverlay.classList.remove('active');
+      });
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+      const scrollPos = window.scrollY + 100;
+      sections.forEach(section => {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        const id = section.getAttribute('id');
+        const link = document.querySelector(`.nav-links a[href="#${id}"]`);
+        if (link) {
+          if (scrollPos >= top && scrollPos < top + height) {
+            document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+            link.classList.add('active');
+          }
+        }
+      });
+    });
+
+    // ============================================
+    //  ANIMATED COUNTERS (Intersection Observer)
+    // ============================================
+    function animateCounter(el) {
+      const target = parseInt(el.dataset.target);
+      const duration = 2000;
+      const start = performance.now();
+
+      function update(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        // Ease out cubic
+        const easedProgress = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(easedProgress * target);
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          el.textContent = target;
+        }
+      }
+
+      requestAnimationFrame(update);
+    }
+
+    // ============================================
+    //  INTERSECTION OBSERVER — Fade In + Counters
+    // ============================================
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+
+          // Animate counters inside this element
+          entry.target.querySelectorAll('.counter').forEach(counter => {
+            if (!counter.dataset.animated) {
+              counter.dataset.animated = 'true';
+              animateCounter(counter);
+            }
+          });
+
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observe all fade-in elements
+    function initObservers() {
+      document.querySelectorAll('.fade-in-up').forEach(el => {
+        fadeObserver.observe(el);
+      });
+    }
+
+    // ============================================
+    //  INITIALIZE
+    // ============================================
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCollegeCards();
+      renderChips();
+      renderTable();
+      initChat();
+      initObservers();
+    });
+  </script>
+</body>
+
+</html>
