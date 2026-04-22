@@ -14,14 +14,14 @@ export const personalInfo = {
     "AWS Certified Developer",
   ],
   bio: `I'm a MERN-focused developer with internship experience at IIT Jammu/Techible and Sumago Infotech. I enjoy turning ideas into working products—whether that's a campus marketplace, a lost & found system, or polished React UIs. AWS certified, hackathon participant, and currently pursuing B.Tech in Information Technology at WIT Solapur.`,
-  email: "prajwalbanthiya27@gmail.com",
+  email: "arihant.mahajan@example.com",
   location: "Maharashtra, India",
   resumeUrl: "/resume.pdf",
-  github: "https://github.com/Prajwal-it/",
+  github: "https://github.com/arihantmahajan585m/",
   /** Local file in /public — professional headshot for About section. */
   profileAvatarUrl: "",
-  linkedin: "https://linkedin.com/in/prajwalbanthiya",
-  twitter: "https://twitter.com/prajwalbanthiya",
+  linkedin: "https://linkedin.com/in/arihant-mahajan",
+  twitter: "https://twitter.com/arihantmahajan",
   availableForWork: true,
 };
 

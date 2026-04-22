@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: "Arihant mahajan b-70 to b-57 | MERN Stack Developer",
     description:
       "Portfolio of Arihant mahajan b-70 to b-57 — MERN Stack Developer, AWS Certified, Full Stack Engineer.",
-    url: "https://prajwalbanthiya.vercel.app",
+    url: "https://arihant-mahajan.vercel.app",
     siteName: "Arihant mahajan b-70 to b-57 Portfolio",
     locale: "en_IN",
     type: "website",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: "Arihant mahajan b-70 to b-57 | MERN Stack Developer",
     description:
       "Portfolio of Arihant mahajan b-70 to b-57 — MERN Stack Developer, AWS Certified.",
-    creator: "@prajwalbanthiya",
+    creator: "@arihantmahajan",
   },
   robots: {
     index: true,

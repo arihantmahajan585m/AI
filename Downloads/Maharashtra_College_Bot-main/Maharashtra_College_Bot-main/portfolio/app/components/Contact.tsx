@@ -36,9 +36,9 @@ export default function Contact() {
 
   const socials = [
     { icon: <Mail size={18} />, label: "Email", href: `mailto:${personalInfo.email}`, value: personalInfo.email },
-    { icon: <Github size={18} />, label: "GitHub", href: personalInfo.github, value: "Prajwal-it" },
-    { icon: <Linkedin size={18} />, label: "LinkedIn", href: personalInfo.linkedin, value: "prajwalbanthiya" },
-    { icon: <Twitter size={18} />, label: "Twitter", href: personalInfo.twitter, value: "@prajwalbanthiya" },
+    { icon: <Github size={18} />, label: "GitHub", href: personalInfo.github, value: "arihantmahajan585m" },
+    { icon: <Linkedin size={18} />, label: "LinkedIn", href: personalInfo.linkedin, value: "arihant-mahajan" },
+    { icon: <Twitter size={18} />, label: "Twitter", href: personalInfo.twitter, value: "@arihantmahajan" },
   ];
 
   return (
@@ -103,7 +103,7 @@ export default function Contact() {
         <div>
           <form onSubmit={handleSubmit} className="glass rounded-2xl p-7 flex flex-col gap-5">
             <div className="grid grid-cols-2 gap-4">
-              <Field label="Name" name="name" value={form.name} onChange={handleChange} placeholder="Prajwal" />
+              <Field label="Name" name="name" value={form.name} onChange={handleChange} placeholder="Arihant" />
               <Field label="Email" name="email" type="email" value={form.email} onChange={handleChange} placeholder="you@email.com" />
             </div>
             <Field label="Subject" name="subject" value={form.subject} onChange={handleChange} placeholder="Project Inquiry" />
