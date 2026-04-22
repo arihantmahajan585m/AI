@@ -1,4 +1,4 @@
-# Prajwal Banthiya — Portfolio Website
+# Arihant mahajan b-70 to b-57 — Portfolio Website
 
 A full-featured, animated dark-theme portfolio built with Next.js 14, TypeScript, Framer Motion, and Three.js.
 
@@ -63,7 +63,7 @@ Replace the initials placeholder in `app/components/About.tsx`:
 // Replace the initials div with:
 <Image
   src="/images/profile.jpg"
-  alt="Prajwal Banthiya"
+  alt="Arihant mahajan b-70 to b-57"
   fill
   className="object-cover rounded-full"
 />
@@ -122,4 +122,4 @@ Add your environment variables in Vercel Dashboard → Settings → Environment 
 
 ---
 
-Built with ❤️ by Prajwal Banthiya
+Built with ❤️ by Arihant mahajan b-70 to b-57

@@ -3,8 +3,8 @@
 // ============================================================
 
 export const personalInfo = {
-  name: "Prajwal Banthiya",
-  initials: "PB",
+  name: "Arihant mahajan b-70 to b-57",
+  initials: "AM",
   tagline: "MERN Stack Developer",
   roles: [
     "MERN Stack Developer",
@@ -19,7 +19,7 @@ export const personalInfo = {
   resumeUrl: "/resume.pdf",
   github: "https://github.com/Prajwal-it/",
   /** Local file in /public — professional headshot for About section. */
-  profileAvatarUrl: "/profile.png",
+  profileAvatarUrl: "",
   linkedin: "https://linkedin.com/in/prajwalbanthiya",
   twitter: "https://twitter.com/prajwalbanthiya",
   availableForWork: true,

@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import "./styles/globals.css";
 
 export const metadata: Metadata = {
-  title: "Prajwal Banthiya | MERN Stack Developer",
+  title: "Arihant mahajan b-70 to b-57 | MERN Stack Developer",
   description:
-    "Portfolio of Prajwal Banthiya — MERN Stack Developer, AWS Certified, Full Stack Engineer based in Maharashtra, India.",
+    "Portfolio of Arihant mahajan b-70 to b-57 — MERN Stack Developer, AWS Certified, Full Stack Engineer based in Maharashtra, India.",
   keywords: [
-    "Prajwal Banthiya",
+    "Arihant mahajan b-70 to b-57",
     "MERN Stack Developer",
     "Full Stack Developer",
     "React Developer",
@@ -17,21 +17,21 @@ export const metadata: Metadata = {
     "Maharashtra",
     "WIT Solapur",
   ],
-  authors: [{ name: "Prajwal Banthiya" }],
+  authors: [{ name: "Arihant mahajan b-70 to b-57" }],
   openGraph: {
-    title: "Prajwal Banthiya | MERN Stack Developer",
+    title: "Arihant mahajan b-70 to b-57 | MERN Stack Developer",
     description:
-      "Portfolio of Prajwal Banthiya — MERN Stack Developer, AWS Certified, Full Stack Engineer.",
+      "Portfolio of Arihant mahajan b-70 to b-57 — MERN Stack Developer, AWS Certified, Full Stack Engineer.",
     url: "https://prajwalbanthiya.vercel.app",
-    siteName: "Prajwal Banthiya Portfolio",
+    siteName: "Arihant mahajan b-70 to b-57 Portfolio",
     locale: "en_IN",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Prajwal Banthiya | MERN Stack Developer",
+    title: "Arihant mahajan b-70 to b-57 | MERN Stack Developer",
     description:
-      "Portfolio of Prajwal Banthiya — MERN Stack Developer, AWS Certified.",
+      "Portfolio of Arihant mahajan b-70 to b-57 — MERN Stack Developer, AWS Certified.",
     creator: "@prajwalbanthiya",
   },
   robots: {
